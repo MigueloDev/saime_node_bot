@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      FROM_EMAIL: "EMAIL_WHERE_YOU_CREATE_PASSWORD"
+      USER_EMAIL: "EMAIL_WHERE_YOU_WANT_TO_RECEIVE_THE_MAIL"
+      APP_PASSWORD: "APP_PASSWORD"
+    ports:
+      - 3500:8081
+    volumes:
+      - .:/usr/src
+      - /usr/src/node_modules
